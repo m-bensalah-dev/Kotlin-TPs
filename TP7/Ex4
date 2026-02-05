@@ -1,0 +1,28 @@
+fun main() {
+    // 1. Créer une carte mutable avec des noms et âges
+    val individuals = mutableMapOf(
+        "Mohammed" to 22,
+        "Othmane" to 23,
+        "Imad" to 21,
+        "Imane" to 29
+    )
+
+    // 2. Ajouter des utilisateurs
+    individuals["Nasima"] = 42  // simpler than put()
+    val persones = mapOf("Ahmed" to 44, "Haytam" to 55)
+    individuals.putAll(persones) // add multiple entries
+
+
+    // 3. Supprimer un utilisateur
+    individuals.remove("Imad")
+
+
+    // 4. Rechercher l'âge d'un utilisateur
+    println("L'âge de Nasima : ${individuals["Nasima"]}")
+
+
+    // 5. Afficher les clés et valeurs
+    for ((clé, valeur) in individuals) {
+        println("Clé: $clé, Valeur: $valeur")
+    }
+}
