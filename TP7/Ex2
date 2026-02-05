@@ -1,0 +1,20 @@
+fun main() {
+    // Step 1: create mutable list
+    val citiesList = mutableListOf("Rabat", "Meknes", "Fes", "Tanger")
+
+    // Step 2: add elements
+    citiesList.add("Tetouan")
+    val northCities = listOf("Fenediq", "Ouazan")
+    citiesList.addAll(northCities)
+
+    // Step 3: remove elements
+    citiesList.remove("Rabat")
+    citiesList.removeAt(1)   // remove the second element
+
+    // Step 4: search
+    println("Rabat existe ? : ${citiesList.contains("Rabat")}")
+
+    // Step 5: size and content
+    println("Taille de la liste : ${citiesList.size}")
+    println("Contenu de la liste : $citiesList")
+}
