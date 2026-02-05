@@ -1,0 +1,64 @@
+enum class AnimalTypes {
+    TERRESTRE, VOLANT, AQUATIQUE
+}
+
+interface Volant {
+    fun voler(): String
+}
+
+interface Aquatique {
+    fun nager(): String
+}
+
+sealed class Animal(
+    val nom: String,
+    val espece: String,
+    val type: AnimalTypes
+) {
+
+    data class Terrestre(
+        val animalNom: String,
+        val animalEspece: String
+    ) : Animal(animalNom, animalEspece, AnimalTypes.TERRESTRE)
+
+    data class VolantAnimal(
+        val volantNom: String,
+        val volantEspece: String
+    ) : Animal(volantNom, volantEspece, AnimalTypes.VOLANT), Volant {
+        override fun voler(): String {
+            return "Cet animal vole."
+        }
+    }
+
+    data class AquatiqueAnimal(
+        val aquatiqueNom: String,
+        val aquatiqueEspece: String
+    ) : Animal(aquatiqueNom, aquatiqueEspece, AnimalTypes.AQUATIQUE), Aquatique {
+        override fun nager(): String {
+            return "Cet animal nage."
+        }
+    }
+}
+
+    fun ajouterAnimal(list: MutableList<Animal>, animal: Animal) {
+        list.add(animal)
+}
+
+fun main() {
+    val terrestre1 = Animal.Terrestre("Chien", "Canidé")
+    val volant1 = Animal.VolantAnimal("Aigle", "Oiseau")
+    val aquatique1 = Animal.AquatiqueAnimal("Dauphin", "Mammifère marin")
+
+    val parc = mutableListOf<Animal>()
+
+    ajouterAnimal(parc, terrestre1)
+    ajouterAnimal(parc, volant1)
+    ajouterAnimal(parc, aquatique1)
+
+    println(volant1.voler())
+    println(aquatique1.nager())
+
+    for(oneAnimal in parc){
+        println("Nom: ${oneAnimal.nom}, Type: ${oneAnimal.type}, AnimalType: ${oneAnimal.espece}")
+    }
+}
