@@ -1,0 +1,18 @@
+fun main() {
+    // Créer un ensemble mutable avec quelques nombres
+    val numbers = mutableSetOf(12, 4, 58, 954, 14, 351)
+
+    // Ajouter des nombres
+    numbers.add(8)
+    numbers.addAll(setOf(41, 89, 214, 24, 7))
+
+    // Supprimer un nombre
+    numbers.remove(12)
+
+    // Vérifier si un nombre existe et afficher un message clair
+    println("954 existe ? : ${numbers.contains(954)}")   // true
+    println("100 existe ? : ${numbers.contains(100)}")   // false
+
+    // Afficher le contenu de l'ensemble
+    println("Contenu de l'ensemble : $numbers")
+}
