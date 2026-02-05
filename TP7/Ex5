@@ -1,0 +1,18 @@
+fun main() {
+    // 1. Créer une liste mutable
+    val listEntiers = mutableListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+    // 2. Ajouter quelques entiers
+    listEntiers.add(7)
+    listEntiers.addAll(listOf(2, 6, 9, 10))
+
+    // 3. Créer une liste immuable à partir de la mutable
+    val immutableList = listEntiers.toList()
+
+    // 4. Trier la liste mutable
+    listEntiers.sort() // sort in place
+
+    // 5. Afficher les listes
+    println("Liste triée - mutable : $listEntiers")
+    println("Liste immuable : $immutableList")
+}
