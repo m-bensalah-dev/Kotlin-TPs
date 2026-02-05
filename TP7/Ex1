@@ -1,0 +1,19 @@
+
+fun main() {
+    fun String.containsSubstring(sustring:String): String{
+        return if(this.contains(sustring)){
+            "La sous-chaine $sustring existe dans $this"
+        }else{
+            "la sous-chaine $sustring n'existe pas dans $this"
+        }
+    }
+
+    val nom = "Google"
+
+    println(nom.containsSubstring("Go"))
+    println(nom.containsSubstring("gle"))
+    println(nom.containsSubstring("Apple"))
+
+
+
+}
